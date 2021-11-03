@@ -58,11 +58,11 @@ https://www.youtube.com/watch?v=H2LPxKL5CvU
 
 <p><b>Pronto!</b> Os containers das APIs e do banco já estão funcionando!</p>
 
-==============================================================================
-Ferramenta para se comunicar com as APIs: Postman
-Documentação das APIs:
+<p>==============================================================================</p>
+<p>Ferramenta para se comunicar com as APIs: Postman</p>
+<p>Documentação das APIs:</p>
 
-API Alunos
+<p>API Alunos </p>
 
 
 Link: http://127.0.0.1:8000/alunos/
