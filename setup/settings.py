@@ -38,7 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'escola',
+    'alunos',
+    'cursos',
+    'esportes',
+    'materias',
+    'notas',
 ]
 
 MIDDLEWARE = [
@@ -77,8 +81,12 @@ WSGI_APPLICATION = 'setup.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'trab-cdist',
+        'USER': 'postgres',
+        'PASSWORD': '23223112',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -107,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'America/Sao_Paulo'
+TIME_ZONE = 'America/Campo_Grande'
 
 USE_I18N = True
 
@@ -120,3 +128,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
