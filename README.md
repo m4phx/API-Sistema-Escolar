@@ -63,107 +63,604 @@ https://www.youtube.com/watch?v=H2LPxKL5CvU
 <p><h2><b>Documentação das APIs</b></h2></p>
 <p><b>Ferramenta para se comunicar com as APIs: Postman</b></p>
 
-<p>API Alunos </p>
+<p><h3><br>API Alunos</h3></br></p>
 
+<p>Link: http://127.0.0.1:8000/alunos/</p>
+<p>Para todos os alunos</p>
 
-Link: http://127.0.0.1:8000/alunos/
+HTTP 200 OK
+Allow: GET, POST, HEAD, OPTIONS
+Content-Type: application/json
+Vary: Accept
 
-Para recuperar alunos:
-Método: GET
-
-Usando o link geral, retorna todos, por exemplo:
-[
-    {
-        "id": 1,
-        "nome": "Aluno 1",
-        "rg": "123456789",
-        "cpf": "12345678901",
-        "data_nascimento": "2021-11-03"
-    },
-    {
-        "id": 2,
-        "nome": "Joaozinho",
-        "rg": "123456789",
-        "cpf": "12345678901",
-        "data_nascimento": "1990-07-13"
-    },
-    {
-        "id": 3,
-        "nome": "Pedrinho",
-        "rg": "123456789",
-        "cpf": "12345678901",
-        "data_nascimento": "1995-03-22"
+{
+    "name": "Aluno List",
+    "description": "\"Exibindo todos os alunos e alunas",
+    "renders": [
+        "application/json",
+        "text/html"
+    ],
+    "parses": [
+        "application/json",
+        "application/x-www-form-urlencoded",
+        "multipart/form-data"
+    ],
+    "actions": {
+        "POST": {
+            "id": {
+                "type": "integer",
+                "required": false,
+                "read_only": true,
+                "label": "ID"
+            },
+            "nome": {
+                "type": "string",
+                "required": true,
+                "read_only": false,
+                "label": "Nome",
+                "max_length": 100
+            },
+            "rg": {
+                "type": "string",
+                "required": true,
+                "read_only": false,
+                "label": "Rg",
+                "max_length": 9
+            },
+            "cpf": {
+                "type": "string",
+                "required": true,
+                "read_only": false,
+                "label": "Cpf",
+                "max_length": 11
+            },
+            "data_nascimento": {
+                "type": "date",
+                "required": true,
+                "read_only": false,
+                "label": "Data nascimento"
+            }
+        }
     }
-]
-
-Usando um link com id especifico, retorna apenas 1, por exemplo:
-
-GET http://127.0.0.1:8000/alunos/2/
-
-Exemplo de resposta:
-
-{
-    "id": 2,
-    "nome": "Joaozinho",
-    "rg": "123456789",
-    "cpf": "12345678901",
-    "data_nascimento": "1990-07-13"
 }
 
+<p>Para apenas um aluno:</p>
+<p>http://127.0.0.1:8000/alunos/id/</p> 
 
-Para inserir um aluno:
-Método: POST
-
-Exemplo de Body:
-
-{
-    "nome": "Joaozinho",
-    "rg": "123456789",
-    "cpf": "12345678901",
-    "data_nascimento": "1990-07-13"
-}
-
-Exemplo de retorno:
+HTTP 200 OK
+Allow: GET, PUT, PATCH, DELETE, HEAD, OPTIONS
+Content-Type: application/json
+Vary: Accept
 
 {
-    "id": 2,
-    "nome": "Joaozinho",
-    "rg": "123456789",
-    "cpf": "12345678901",
-    "data_nascimento": "1990-07-13"
-}
-
-Para atualizar um aluno:
-
-Método: PUT
-
-Link deve especificar id
-
-Exemplo:
-
-PUT http://127.0.0.1:8000/alunos/2/
-
-{
-        "nome": "Paulo",
-        "rg": "129111111",
-        "cpf": "12345678901",
-        "data_nascimento": "1995-04-13"
-}
-
-Retorna o aluno editado
-
-    {
-        "id": 2,
-        "nome": "Paulo",
-        "rg": "129111111",
-        "cpf": "12345678901",
-        "data_nascimento": "1995-04-13"
+    "name": "Aluno Instance",
+    "description": "\"Exibindo um aluno",
+    "renders": [
+        "application/json",
+        "text/html"
+    ],
+    "parses": [
+        "application/json",
+        "application/x-www-form-urlencoded",
+        "multipart/form-data"
+    ],
+    "actions": {
+        "PUT": {
+            "id": {
+                "type": "integer",
+                "required": false,
+                "read_only": true,
+                "label": "ID"
+            },
+            "nome": {
+                "type": "string",
+                "required": true,
+                "read_only": false,
+                "label": "Nome",
+                "max_length": 100
+            },
+            "rg": {
+                "type": "string",
+                "required": true,
+                "read_only": false,
+                "label": "Rg",
+                "max_length": 9
+            },
+            "cpf": {
+                "type": "string",
+                "required": true,
+                "read_only": false,
+                "label": "Cpf",
+                "max_length": 11
+            },
+            "data_nascimento": {
+                "type": "date",
+                "required": true,
+                "read_only": false,
+                "label": "Data nascimento"
+            }
+        }
     }
+}
 
-Deletar um aluno:
+<p><h3><br>API Cursos</h3></br></p>
 
-Link deve especificar id, por exemplo:
+<p>Link: http://127.0.0.1:8000/cursos/</p>
+<p>Para todos os cursos</p>
 
-DELETE http://127.0.0.1:8000/alunos/2/
+HTTP 200 OK
+Allow: GET, POST, HEAD, OPTIONS
+Content-Type: application/json
+Vary: Accept
 
-Apaga o aluno e não retorna nada.
+{
+    "name": "Curso List",
+    "description": "Exibindo todos os cursos",
+    "renders": [
+        "application/json",
+        "text/html"
+    ],
+    "parses": [
+        "application/json",
+        "application/x-www-form-urlencoded",
+        "multipart/form-data"
+    ],
+    "actions": {
+        "POST": {
+            "id": {
+                "type": "integer",
+                "required": false,
+                "read_only": true,
+                "label": "ID"
+            },
+            "nome": {
+                "type": "string",
+                "required": true,
+                "read_only": false,
+                "label": "Nome",
+                "max_length": 255
+            },
+            "codigo_curso": {
+                "type": "string",
+                "required": true,
+                "read_only": false,
+                "label": "Codigo curso",
+                "max_length": 10
+            },
+            "descricao": {
+                "type": "string",
+                "required": true,
+                "read_only": false,
+                "label": "Descricao",
+                "max_length": 100
+            },
+            "nivel": {
+                "type": "choice",
+                "required": false,
+                "read_only": false,
+                "label": "Nivel",
+                "choices": [
+                    {
+                        "value": "B",
+                        "display_name": "Básico"
+                    },
+                    {
+                        "value": "I",
+                        "display_name": "Intermediário"
+                    },
+                    {
+                        "value": "A",
+                        "display_name": "Avançado"
+                    }
+                ]
+            }
+        }
+    }
+}
+
+<p>Para apenas um curso:</p>
+
+<p>http://127.0.0.1:8000/cursos/id/</p>
+
+HTTP 200 OK
+Allow: GET, PUT, PATCH, DELETE, HEAD, OPTIONS
+Content-Type: application/json
+Vary: Accept
+
+{
+    "name": "Curso Instance",
+    "description": "Exibindo um curso",
+    "renders": [
+        "application/json",
+        "text/html"
+    ],
+    "parses": [
+        "application/json",
+        "application/x-www-form-urlencoded",
+        "multipart/form-data"
+    ],
+    "actions": {
+        "PUT": {
+            "id": {
+                "type": "integer",
+                "required": false,
+                "read_only": true,
+                "label": "ID"
+            },
+            "nome": {
+                "type": "string",
+                "required": true,
+                "read_only": false,
+                "label": "Nome",
+                "max_length": 255
+            },
+            "codigo_curso": {
+                "type": "string",
+                "required": true,
+                "read_only": false,
+                "label": "Codigo curso",
+                "max_length": 10
+            },
+            "descricao": {
+                "type": "string",
+                "required": true,
+                "read_only": false,
+                "label": "Descricao",
+                "max_length": 100
+            },
+            "nivel": {
+                "type": "choice",
+                "required": false,
+                "read_only": false,
+                "label": "Nivel",
+                "choices": [
+                    {
+                        "value": "B",
+                        "display_name": "Básico"
+                    },
+                    {
+                        "value": "I",
+                        "display_name": "Intermediário"
+                    },
+                    {
+                        "value": "A",
+                        "display_name": "Avançado"
+                    }
+                ]
+            }
+        }
+    }
+}
+
+<p><h3><br>API Nota</h3></br></p>
+
+<p>Para todas as notas</p>
+<p>Link: http://127.0.0.1:8000/notas/</p>
+
+HTTP 200 OK
+Allow: GET, POST, HEAD, OPTIONS
+Content-Type: application/json
+Vary: Accept
+
+{
+    "name": "Nota List",
+    "description": "Exibindo todos as notas",
+    "renders": [
+        "application/json",
+        "text/html"
+    ],
+    "parses": [
+        "application/json",
+        "application/x-www-form-urlencoded",
+        "multipart/form-data"
+    ],
+    "actions": {
+        "POST": {
+            "id": {
+                "type": "integer",
+                "required": false,
+                "read_only": true,
+                "label": "ID"
+            },
+            "valor": {
+                "type": "integer",
+                "required": true,
+                "read_only": false,
+                "label": "Valor",
+                "min_value": -2147483648,
+                "max_value": 2147483647
+            },
+            "aluno": {
+                "type": "field",
+                "required": true,
+                "read_only": false,
+                "label": "Aluno"
+            }
+        }
+    }
+}
+
+<p>Para apenas uma nota</p>
+<p>Link: http://127.0.0.1:8000/notas/id</p>
+
+HTTP 200 OK
+Allow: GET, PUT, PATCH, DELETE, HEAD, OPTIONS
+Content-Type: application/json
+Vary: Accept
+
+{
+    "name": "Nota Instance",
+    "description": "Exibindo uma nota",
+    "renders": [
+        "application/json",
+        "text/html"
+    ],
+    "parses": [
+        "application/json",
+        "application/x-www-form-urlencoded",
+        "multipart/form-data"
+    ],
+    "actions": {
+        "PUT": {
+            "id": {
+                "type": "integer",
+                "required": false,
+                "read_only": true,
+                "label": "ID"
+            },
+            "valor": {
+                "type": "integer",
+                "required": true,
+                "read_only": false,
+                "label": "Valor",
+                "min_value": -2147483648,
+                "max_value": 2147483647
+            },
+            "aluno": {
+                "type": "field",
+                "required": true,
+                "read_only": false,
+                "label": "Aluno"
+            }
+        }
+    }
+}
+
+<p><h3><br>API Esportes</br></h3></p>
+<p>Link http://127.0.0.1:8000/esportes/</p>
+<p>Para todos os esportes</p>
+
+HTTP 200 OK
+Allow: GET, POST, HEAD, OPTIONS
+Content-Type: application/json
+Vary: Accept
+
+{
+    "name": "Esporte List",
+    "description": "Exibindo todos os esportes",
+    "renders": [
+        "application/json",
+        "text/html"
+    ],
+    "parses": [
+        "application/json",
+        "application/x-www-form-urlencoded",
+        "multipart/form-data"
+    ],
+    "actions": {
+        "POST": {
+            "id": {
+                "type": "integer",
+                "required": false,
+                "read_only": true,
+                "label": "ID"
+            },
+            "nome": {
+                "type": "string",
+                "required": true,
+                "read_only": false,
+                "label": "Nome",
+                "max_length": 10
+            },
+            "descricao": {
+                "type": "string",
+                "required": true,
+                "read_only": false,
+                "label": "Descricao",
+                "max_length": 100
+            },
+            "tipo": {
+                "type": "choice",
+                "required": false,
+                "read_only": false,
+                "label": "Tipo",
+                "choices": [
+                    {
+                        "value": "B",
+                        "display_name": "Bola"
+                    },
+                    {
+                        "value": "P",
+                        "display_name": "Peso"
+                    },
+                    {
+                        "value": "A",
+                        "display_name": "Aquático"
+                    }
+                ]
+            }
+        }
+    }
+}
+
+<p>Link http://127.0.0.1:8000/esportes/id</p>
+<p>Para apenas um esporte</p>
+
+HTTP 200 OK
+Allow: GET, PUT, PATCH, DELETE, HEAD, OPTIONS
+Content-Type: application/json
+Vary: Accept
+
+{
+    "name": "Esporte Instance",
+    "description": "Exibindo um esporte",
+    "renders": [
+        "application/json",
+        "text/html"
+    ],
+    "parses": [
+        "application/json",
+        "application/x-www-form-urlencoded",
+        "multipart/form-data"
+    ],
+    "actions": {
+        "PUT": {
+            "id": {
+                "type": "integer",
+                "required": false,
+                "read_only": true,
+                "label": "ID"
+            },
+            "nome": {
+                "type": "string",
+                "required": true,
+                "read_only": false,
+                "label": "Nome",
+                "max_length": 10
+            },
+            "descricao": {
+                "type": "string",
+                "required": true,
+                "read_only": false,
+                "label": "Descricao",
+                "max_length": 100
+            },
+            "tipo": {
+                "type": "choice",
+                "required": false,
+                "read_only": false,
+                "label": "Tipo",
+                "choices": [
+                    {
+                        "value": "B",
+                        "display_name": "Bola"
+                    },
+                    {
+                        "value": "P",
+                        "display_name": "Peso"
+                    },
+                    {
+                        "value": "A",
+                        "display_name": "Aquático"
+                    }
+                ]
+            }
+        }
+    }
+}
+
+<p><h3><br>API Matérias</br></h3></p>
+
+<p>Link: http://127.0.0.1:8000/materias/</p>
+<p>Para todas as matérias</p>
+
+HTTP 200 OK
+Allow: GET, POST, HEAD, OPTIONS
+Content-Type: application/json
+Vary: Accept
+
+{
+    "name": "Materia List",
+    "description": "\"Exibindo todos as matérias",
+    "renders": [
+        "application/json",
+        "text/html"
+    ],
+    "parses": [
+        "application/json",
+        "application/x-www-form-urlencoded",
+        "multipart/form-data"
+    ],
+    "actions": {
+        "POST": {
+            "id": {
+                "type": "integer",
+                "required": false,
+                "read_only": true,
+                "label": "ID"
+            },
+            "nome": {
+                "type": "string",
+                "required": true,
+                "read_only": false,
+                "label": "Nome",
+                "max_length": 30
+            },
+            "carga_horaria": {
+                "type": "string",
+                "required": true,
+                "read_only": false,
+                "label": "Carga horaria",
+                "max_length": 3
+            },
+            "curso": {
+                "type": "field",
+                "required": true,
+                "read_only": false,
+                "label": "Curso"
+            }
+        }
+    }
+}
+
+<p>Link: http://127.0.0.1:8000/materias/id/
+<p>Para uma matéria</p>
+
+HTTP 200 OK
+Allow: GET, PUT, PATCH, DELETE, HEAD, OPTIONS
+Content-Type: application/json
+Vary: Accept
+
+{
+    "name": "Materia Instance",
+    "description": "\"Exibindo todos os alunos e alunas",
+    "renders": [
+        "application/json",
+        "text/html"
+    ],
+    "parses": [
+        "application/json",
+        "application/x-www-form-urlencoded",
+        "multipart/form-data"
+    ],
+    "actions": {
+        "PUT": {
+            "id": {
+                "type": "integer",
+                "required": false,
+                "read_only": true,
+                "label": "ID"
+            },
+            "nome": {
+                "type": "string",
+                "required": true,
+                "read_only": false,
+                "label": "Nome",
+                "max_length": 30
+            },
+            "carga_horaria": {
+                "type": "string",
+                "required": true,
+                "read_only": false,
+                "label": "Carga horaria",
+                "max_length": 3
+            },
+            "curso": {
+                "type": "field",
+                "required": true,
+                "read_only": false,
+                "label": "Curso"
+            }
+        }
+    }
+}
