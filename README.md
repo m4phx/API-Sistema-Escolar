@@ -1,4 +1,4 @@
-Como configurar o projeto
+<h1>Como configurar o projeto</h1>
 
 Para fazê-lo, utilizei de Docker Desktop, WSL2, Portainer, Python 3.9.6, Django 3.2.5, PostgreSQL 14.
 Tenha eles instalados em sua máquina.
