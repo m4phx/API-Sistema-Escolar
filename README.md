@@ -1,7 +1,16 @@
 <h1>Como configurar o projeto</h1>
 
+O sistema operacional utilizado foi o Windows.
 Para fazê-lo, utilizei de Docker Desktop, WSL2, Portainer, Python 3.9.6, Django 3.2.5, PostgreSQL 14.
 Tenha eles instalados em sua máquina.
+
+<p>Instalação do Docker e WSL2 (português): https://docs.microsoft.com/pt-br/windows/wsl/tutorials/wsl-containers</p>
+<p>Instalação do Docker (inglês): https://docs.docker.com/desktop/windows/wsl/</p>
+<p>Instalação do WSL2 (português): https://docs.microsoft.com/pt-br/windows/wsl/install</p>
+<p>Instalação do Python: https://python.org.br/instalacao-windows/</p>
+<p>Instalação do PostgreSQL https://techexpert.tips/pt-br/windows-pt-br/instalacao-do-postgresql-no-windows/</p>
+<p>Instalação do Django: https://docs.djangoproject.com/pt-br/3.2/intro/install/</p>
+
 
 <p>Primeiramente, baixe este projeto, clicando em 'Code' e depois 'Download ZIP'</p>
 <p>Após isso, crie uma pasta no diretório de sua preferência chamada 'src' e coloque todos os arquivos lá dentro, com a execessão de três:</p>
@@ -48,3 +57,112 @@ https://www.youtube.com/watch?v=H2LPxKL5CvU
 <p>Vão aparecer muitas mensagens na tela, mas as últimas serão algo como: https://imgur.com/9TVWVEr</p>
 
 <p><b>Pronto!</b> Os containers das APIs e do banco já estão funcionando!</p>
+
+==============================================================================
+Ferramenta para se comunicar com as APIs: Postman
+Documentação das APIs:
+
+API Alunos
+
+
+Link: http://127.0.0.1:8000/alunos/
+
+Para recuperar alunos:
+Método: GET
+
+Usando o link geral, retorna todos, por exemplo:
+[
+    {
+        "id": 1,
+        "nome": "Aluno 1",
+        "rg": "123456789",
+        "cpf": "12345678901",
+        "data_nascimento": "2021-11-03"
+    },
+    {
+        "id": 2,
+        "nome": "Joaozinho",
+        "rg": "123456789",
+        "cpf": "12345678901",
+        "data_nascimento": "1990-07-13"
+    },
+    {
+        "id": 3,
+        "nome": "Pedrinho",
+        "rg": "123456789",
+        "cpf": "12345678901",
+        "data_nascimento": "1995-03-22"
+    }
+]
+
+Usando um link com id especifico, retorna apenas 1, por exemplo:
+
+GET http://127.0.0.1:8000/alunos/2/
+
+Exemplo de resposta:
+
+{
+    "id": 2,
+    "nome": "Joaozinho",
+    "rg": "123456789",
+    "cpf": "12345678901",
+    "data_nascimento": "1990-07-13"
+}
+
+
+Para inserir um aluno:
+Método: POST
+
+Exemplo de Body:
+
+{
+    "nome": "Joaozinho",
+    "rg": "123456789",
+    "cpf": "12345678901",
+    "data_nascimento": "1990-07-13"
+}
+
+Exemplo de retorno:
+
+{
+    "id": 2,
+    "nome": "Joaozinho",
+    "rg": "123456789",
+    "cpf": "12345678901",
+    "data_nascimento": "1990-07-13"
+}
+
+Para atualizar um aluno:
+
+Método: PUT
+
+Link deve especificar id
+
+Exemplo:
+
+PUT http://127.0.0.1:8000/alunos/2/
+
+{
+        "nome": "Paulo",
+        "rg": "129111111",
+        "cpf": "12345678901",
+        "data_nascimento": "1995-04-13"
+}
+
+Retorna o aluno editado
+
+    {
+        "id": 2,
+        "nome": "Paulo",
+        "rg": "129111111",
+        "cpf": "12345678901",
+        "data_nascimento": "1995-04-13"
+    }
+
+Deletar um aluno:
+
+Link deve especificar id, por exemplo:
+
+DELETE http://127.0.0.1:8000/alunos/2/
+
+Apaga o aluno e não retorna nada.
