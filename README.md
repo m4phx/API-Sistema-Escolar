@@ -58,9 +58,10 @@ https://www.youtube.com/watch?v=H2LPxKL5CvU
 
 <p><b>Pronto!</b> Os containers das APIs e do banco já estão funcionando!</p>
 
-<p>==============================================================================</p>
-<p>Ferramenta para se comunicar com as APIs: Postman</p>
-<p>Documentação das APIs:</p>
+<p><b>==============================================================================</b></p>
+
+<p><h2><b>Documentação das APIs</b></h2></p>
+<p><b>Ferramenta para se comunicar com as APIs: Postman</b></p>
 
 <p>API Alunos </p>
 
