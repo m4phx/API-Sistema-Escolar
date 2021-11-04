@@ -72,7 +72,7 @@ HTTP 200 OK
 Allow: GET, POST, HEAD, OPTIONS
 Content-Type: application/json
 Vary: Accept
-
+```
 {
     "name": "Aluno List",
     "description": "\"Exibindo todos os alunos e alunas",
@@ -123,7 +123,7 @@ Vary: Accept
         }
     }
 }
-
+```
 <p>Para apenas um aluno:</p>
 <p>http://127.0.0.1:8000/alunos/id/</p> 
 
@@ -131,7 +131,7 @@ HTTP 200 OK
 Allow: GET, PUT, PATCH, DELETE, HEAD, OPTIONS
 Content-Type: application/json
 Vary: Accept
-
+```
 {
     "name": "Aluno Instance",
     "description": "\"Exibindo um aluno",
@@ -182,7 +182,7 @@ Vary: Accept
         }
     }
 }
-
+```
 <p><h3><br>API Cursos</h3></br></p>
 
 <p>Link: http://127.0.0.1:8000/cursos/</p>
@@ -192,7 +192,7 @@ HTTP 200 OK
 Allow: GET, POST, HEAD, OPTIONS
 Content-Type: application/json
 Vary: Accept
-
+```
 {
     "name": "Curso List",
     "description": "Exibindo todos os cursos",
@@ -257,7 +257,7 @@ Vary: Accept
         }
     }
 }
-
+```
 <p>Para apenas um curso:</p>
 
 <p>http://127.0.0.1:8000/cursos/id/</p>
@@ -266,7 +266,7 @@ HTTP 200 OK
 Allow: GET, PUT, PATCH, DELETE, HEAD, OPTIONS
 Content-Type: application/json
 Vary: Accept
-
+``` 
 {
     "name": "Curso Instance",
     "description": "Exibindo um curso",
@@ -331,7 +331,7 @@ Vary: Accept
         }
     }
 }
-
+```
 <p><h3><br>API Nota</h3></br></p>
 
 <p>Para todas as notas</p>
@@ -341,7 +341,7 @@ HTTP 200 OK
 Allow: GET, POST, HEAD, OPTIONS
 Content-Type: application/json
 Vary: Accept
-
+```
 {
     "name": "Nota List",
     "description": "Exibindo todos as notas",
@@ -379,7 +379,7 @@ Vary: Accept
         }
     }
 }
-
+```
 <p>Para apenas uma nota</p>
 <p>Link: http://127.0.0.1:8000/notas/id</p>
 
@@ -387,7 +387,7 @@ HTTP 200 OK
 Allow: GET, PUT, PATCH, DELETE, HEAD, OPTIONS
 Content-Type: application/json
 Vary: Accept
-
+```
 {
     "name": "Nota Instance",
     "description": "Exibindo uma nota",
@@ -425,7 +425,7 @@ Vary: Accept
         }
     }
 }
-
+```
 <p><h3><br>API Esportes</br></h3></p>
 <p>Link http://127.0.0.1:8000/esportes/</p>
 <p>Para todos os esportes</p>
@@ -434,7 +434,7 @@ HTTP 200 OK
 Allow: GET, POST, HEAD, OPTIONS
 Content-Type: application/json
 Vary: Accept
-
+```
 {
     "name": "Esporte List",
     "description": "Exibindo todos os esportes",
@@ -492,7 +492,7 @@ Vary: Accept
         }
     }
 }
-
+```
 <p>Link http://127.0.0.1:8000/esportes/id</p>
 <p>Para apenas um esporte</p>
 
@@ -500,7 +500,7 @@ HTTP 200 OK
 Allow: GET, PUT, PATCH, DELETE, HEAD, OPTIONS
 Content-Type: application/json
 Vary: Accept
-
+```
 {
     "name": "Esporte Instance",
     "description": "Exibindo um esporte",
@@ -558,7 +558,7 @@ Vary: Accept
         }
     }
 }
-
+```
 <p><h3><br>API Matérias</br></h3></p>
 
 <p>Link: http://127.0.0.1:8000/materias/</p>
@@ -568,7 +568,7 @@ HTTP 200 OK
 Allow: GET, POST, HEAD, OPTIONS
 Content-Type: application/json
 Vary: Accept
-
+```
 {
     "name": "Materia List",
     "description": "\"Exibindo todos as matérias",
@@ -612,7 +612,7 @@ Vary: Accept
         }
     }
 }
-
+```
 <p>Link: http://127.0.0.1:8000/materias/id/
 <p>Para uma matéria</p>
 
@@ -620,7 +620,7 @@ HTTP 200 OK
 Allow: GET, PUT, PATCH, DELETE, HEAD, OPTIONS
 Content-Type: application/json
 Vary: Accept
-
+```
 {
     "name": "Materia Instance",
     "description": "\"Exibindo todos os alunos e alunas",
@@ -664,3 +664,4 @@ Vary: Accept
         }
     }
 }
+```
